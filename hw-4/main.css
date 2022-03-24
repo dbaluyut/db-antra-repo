@@ -78,7 +78,13 @@
 }
 
 .todo-list {
-  min-height: calc(100vh - (265px + 71px + 91));
+  max-height: calc((100vh - 264px - 71px - 12rem));
+  overflow: scroll;
+  -ms-overflow-style: none;
+}
+
+.todo-list::-webkit-scrollbar {
+  display: none;
 }
 
 .todo-item {
@@ -90,6 +96,11 @@
   font-size: 1.5rem;
   background-color: #e3ffff;
   padding-left: 2.5rem;
+  overflow: scroll;
+  -ms-overflow-style: none;
+}
+.todo-item::-webkit-scrollbar {
+  display: none;
 }
 
 .todo-item:hover {

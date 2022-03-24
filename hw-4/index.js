@@ -62,7 +62,7 @@ function markComplete(id) {
         userId: todo.userId,
         id: todo.id,
         title: todo.title,
-        completed: true,
+        completed: !todo.completed,
       }
     } else {
       return todo
@@ -78,13 +78,15 @@ function setUpEvent() {
       render(domSel.todoList, todoTemplate(todos))
     }
 
-    const isTitle = e.target.classList.contains('todo-item_title')
+    const isTitle =
+      e.target.classList.contains('todo-item') ||
+      e.target.classList.contains('todo-item_title')
 
     if (isTitle) {
-      const id = e.target.parentElement.id.substring(5)
+      const id =
+        e.target.parentElement.id.substring(5) | e.target.id.substring(5)
       console.log(id)
       markComplete(id)
-      console.log(todos)
       render(domSel.todoList, todoTemplate(todos))
     }
   })
@@ -94,12 +96,15 @@ function setupSubmitEvent() {
   document.querySelector('.todo-form').addEventListener('submit', (e) => {
     e.preventDefault()
     const title = document.querySelector('.todo-form_input').value
-    todos.unshift({
-      userId: 1,
-      id: Math.random() * 10,
-      title: title,
-      completed: false,
-    })
+    if (title.length > 0) {
+      todos.unshift({
+        userId: 1,
+        id: Math.floor(Math.random() * 1000),
+        title: title,
+        completed: false,
+      })
+    }
+
     render(domSel.todoList, todoTemplate(todos))
   })
 }
