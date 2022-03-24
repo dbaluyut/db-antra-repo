@@ -44,7 +44,7 @@ function todoTemplate(todosArr) {
     .map((todo) => {
       return `<div class="todo-item" id="todo-${todo.id}">      
             <p class="todo-item_title
-            ${!todo.completed ? 'completed' : ''}">${todo.title}</p>
+            ${todo.completed ? 'completed' : ''}">${todo.title}</p>
             <span class="todo-item_delete">x</span>
         </div>`
     })
@@ -56,30 +56,55 @@ function render(elHtml, template) {
 }
 
 function markComplete(id) {
-  todos = todos.map((todo) => (todo.id == id ? (todo.completed = false) : todo))
+  todos = todos.map((todo) => {
+    if (todo.id == id) {
+      return {
+        userId: todo.userId,
+        id: todo.id,
+        title: todo.title,
+        completed: true,
+      }
+    } else {
+      return todo
+    }
+  })
 }
 
 function setUpEvent() {
   document.querySelector(domSel.todoList).addEventListener('click', (e) => {
     if (e.target.classList.contains('todo-item_delete')) {
-      const id = e.target.parentElement.id.substring(3)
+      const id = e.target.parentElement.id.substring(5)
       deleteTodo(id)
       render(domSel.todoList, todoTemplate(todos))
     }
-  })
 
-  document.querySelector(domSel.todoList).addEventListener('click', (e) => {
-    const isTitle = e.target.classList.contains('.todo-item_title')
+    const isTitle = e.target.classList.contains('todo-item_title')
 
     if (isTitle) {
-      console.log(isTitle)
-      const id = e.target.parentElement.id.substring(3)
+      const id = e.target.parentElement.id.substring(5)
+      console.log(id)
       markComplete(id)
+      console.log(todos)
       render(domSel.todoList, todoTemplate(todos))
     }
+  })
+}
+
+function setupSubmitEvent() {
+  document.querySelector('.todo-form').addEventListener('submit', (e) => {
+    e.preventDefault()
+    const title = document.querySelector('.todo-form_input').value
+    todos.unshift({
+      userId: 1,
+      id: Math.random() * 10,
+      title: title,
+      completed: false,
+    })
+    render(domSel.todoList, todoTemplate(todos))
   })
 }
 
 render(domSel.todoList, todoTemplate(todos))
 render(domSel.todoCount, todos.length + ' todos left')
 setUpEvent()
+setupSubmitEvent()
