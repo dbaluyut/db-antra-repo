@@ -1,0 +1,55 @@
+.blog-detail-page {
+  display: grid;
+  grid-template-columns: auto 20rem;
+  gap: 2rem;
+}
+.blog-detail * {
+  margin-bottom: 1rem;
+}
+.blog-detail_list-item {
+  margin-left: 3ch;
+}
+
+code {
+  border: 2px solid lightgrey;
+  display: block;
+  padding: 0.5rem;
+}
+
+.side-bar_about {
+  background-color: rgb(235, 235, 235);
+  padding: 2rem;
+  line-height: 2ch;
+}
+
+.side-bar_about h2 {
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.side-bar_nav {
+  padding: 2rem;
+  list-style: none;
+}
+
+.side-bar_nav h2 {
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.outlined-button {
+  padding: 0.5rem 1rem;
+  background-color: white;
+  border-radius: 3rem;
+  margin: 0.5rem;
+}
+
+.inactive {
+  border: 3px solid lightgrey;
+  color: lightgrey;
+}
+
+.active {
+  border: 3px solid rgb(0, 187, 255);
+  color: rgb(0, 187, 255);
+}
