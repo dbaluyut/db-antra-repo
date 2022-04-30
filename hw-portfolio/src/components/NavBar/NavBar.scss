@@ -1,0 +1,12 @@
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: absolute;
+  width: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8));
+  & > div {
+    margin-right: 2rem;
+  }
+}

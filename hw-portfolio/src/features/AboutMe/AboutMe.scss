@@ -1,0 +1,34 @@
+.AboutMe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  // background-position: center;
+  font-size: 12pt;
+  padding: 2rem;
+  & h1 {
+    font-size: 34pt;
+  }
+  & h2 {
+    font-size: 24pt;
+  }
+  & h3 {
+    font-size: 24px;
+  }
+  .heading-group {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  & > article {
+    width: 70%;
+    margin: 0 auto;
+  }
+  & > * > * {
+    margin-bottom: 2rem;
+  }
+  & li {
+    list-style: none;
+  }
+}

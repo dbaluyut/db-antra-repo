@@ -1,0 +1,21 @@
+.Banner {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  & > h1 {
+    font-size: 100pt;
+    text-align: center;
+  }
+  & > h2 {
+    font-size: 28pt;
+  }
+  & > * {
+    margin-bottom: 1rem;
+  }
+}

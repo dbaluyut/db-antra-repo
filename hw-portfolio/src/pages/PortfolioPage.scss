@@ -1,0 +1,15 @@
+.PortfolioPage {
+  text-align: center;
+  padding: 3rem;
+  background-color: #59585d;
+  color: white;
+  & .CardsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 3rem;
+  }
+  & h1 {
+    font-size: 36px;
+  }
+}
