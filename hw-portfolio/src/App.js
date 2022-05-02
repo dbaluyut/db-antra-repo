@@ -8,6 +8,7 @@ import './App.scss'
 import PortfolioPage from './pages/PortfolioPage'
 import NavBar from './components/NavBar/Navbar'
 import Footer from './components/Footer/Footer'
+import ContactPage from './pages/ContactPage'
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/portfolio' element={<PortfolioPage />} />
+          <Route path='/contact' element={<ContactPage />} />
         </Routes>
         <Footer />
       </div>
